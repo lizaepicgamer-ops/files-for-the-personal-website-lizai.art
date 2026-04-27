@@ -272,34 +272,83 @@ body {
 
 /* МОБИЛКА */
 @media (max-width: 1024px) {
-    .container { padding: 0 20px; }
-    .page-title { margin-left: 0; font-size: 28px; }
-    .content { margin-left: 0; }
+        .container { padding: 0 20px; }
     
+    /* Исправляем заголовок страницы */
+    .page-title { 
+        margin-left: 0 !important; 
+        font-size: 24px; 
+        text-align: left;
+        margin-top: 10px;
+    }
+    
+    .content { margin-left: 0; padding-bottom: 100px; }
+    
+    /* Меню и Гамбургер */
     .menu-toggle { display: flex; }
     .main-nav {
         position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
         background: #050505; z-index: 1000; padding: 100px 40px; transition: 0.5s;
+        display: flex; flex-direction: column; justify-content: space-between;
     }
     .main-nav.active { right: 0; }
     .nav-links { flex-direction: column; gap: 30px; }
-    .nav-links a { font-size: 30px; }
+    .nav-links a { font-size: 32px; }
 
-    .sidebar-contacts { display: none; }
+    /* Контакты внутри мобильного меню */
+    .mobile-contacts { margin-top: auto; padding-bottom: 50px; border-top: 1px solid #bc13fe; pt: 30px; }
+    .mobile-contacts h3 { color: #bc13fe; margin-bottom: 15px; font-size: 18px; letter-spacing: 2px; }
+    .mobile-contacts p { font-size: 20px; margin-bottom: 10px; color: #fff; }
 
-    /* На мобилке цифры лучше скрыть или уменьшить, чтобы не перекрывали видео */
-    .video-number { display: none; } 
+    .sidebar-contacts { display: none; } /* Прячем обычный сайдбар */
 
+    /* Видео-сетка */
     .video-grid { grid-template-columns: 1fr; gap: 15px; }
+    
+    /* Обычные карточки работ на главной - компактные */
     .video-card { display: flex; align-items: center; height: 110px; padding: 5px; }
-    .video-preview { width: 140px; height: 80px; margin: 0 10px; }
-    .video-info h2 { font-size: 16px; }
+    .video-card .video-preview { width: 140px; height: 80px; margin: 0 10px; flex-shrink: 0; }
+    .video-card .video-info h2 { font-size: 16px; }
+    .video-number { display: none; }
 
-    .about-top { flex-direction: column; text-align: center; }
-    .about-photo { width: 280px; }
-    .achievement-wide { flex-direction: column; text-align: center; border-left: none; border-top: 4px solid #bc13fe; }
+    /* ИСКЛЮЧЕНИЕ ДЛЯ НАГРАДЫ (About Me) */
+    .expanded-award { 
+        display: block !important; /* Делаем её вертикальной, а не в ряд */
+        height: auto !important; 
+        padding: 0 !important;
+        margin-bottom: 40px;
+    }
+    .expanded-award .video-preview {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
+        margin: 0 !important;
+        border-radius: 15px 15px 0 0;
+    }
+    .expanded-award .video-info { padding: 20px !important; }
+    .expanded-award .award-tag { font-size: 14px; }
+    .expanded-award .award-info p { font-size: 14px; margin-left: 0; }
+
+    /* Страница About Me мобильная версия */
+    .about-top { flex-direction: column; text-align: left; gap: 30px; }
+    .about-photo { width: 100%; max-width: 300px; margin: 0 auto; }
+    .intro-text h2 { font-size: 32px; }
+    
+    /* Чтобы заголовки секций (HARD SKILLS и т.д.) были видны */
+    .section-title { 
+        font-size: 18px; 
+        margin: 40px 0 20px 0; 
+        display: block !important; 
+        visibility: visible !important;
+    }
+
+    /* Когда карточка расширена на весь экран на мобилке */
+    .video-card.expanded {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        z-index: 2000; display: block; overflow-y: auto; padding: 0; border-radius: 0;
+    }
+    .video-card.expanded .main-video { border-radius: 0; }
 }
-
 /* Уточняем сетку */
 .video-grid { 
     display: grid; 
