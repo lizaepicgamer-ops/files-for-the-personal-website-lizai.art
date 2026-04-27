@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Lizai Art</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="main-header">
+            <div class="header-left">
+                <div class="logo"><img src="img/logo.png" alt=""></div>
+                <h1 class="page-title">ABOUT ME</h1>
+            </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+            <nav class="main-nav" id="mobileMenu">
+                <ul class="nav-links">
+                    <li><a href="about.html" class="active">О СЕБЕ</a></li>
+                    <li><a href="index.html">РАБОТЫ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar-contacts">
+                <div class="showreel-box">
+                    <h4>✦ SHOWREEL</h4>
+                    <div class="showreel-video">
+                        <div class="showreel-placeholder">Coming soon :)</div>                    
+                    </div>
+                </div>
+                <div class="stars-container">
+                    <div class="star-anim s1">✦</div>
+                    <div class="star-anim s2">✦</div>
+                    <div class="star-anim s3">✦</div>
+                </div>                
+                <div class="contacts-box">
+                    <h3>КОНТАКТЫ</h3>
+                    <div class="contact-item" onclick="copyEmail('me@ee3e.ru', this)">
+                        <p>✦ EMAIL</p>
+                        <small>me@ee3e.ru</small>
+                        <span class="copy-status">Скопировано!</span>
+                    </div>
+                    <a href="https://t.me/lizai_art" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="contact-item">
+                            <p>✦ TELEGRAM</p>
+                            <small>@lizai_art</small>
+                        </div>
+                    </a>
+                </div>
+            </aside>
+
+            <main class="content">
+                <div class="about-top">
+                    <div class="about-photo">
+                        <img src="img/my-photo.png" alt="Liza" class="photo-main">
+                        <img src="img/my-photo2.png" alt="Liza Hover" class="photo-hover">
+                    </div>
+                    <div class="intro-text">
+                        <h2>ПРИВЕТ, Я ЛИЗА</h2>
+                        <p>Мне 20 лет, и последние два года занимаюсь созданием визуального контента с помощью искусственного интеллекта. Я AI-артист, который любит сочетать художественный подход с новыми технологиями. В прошлом окончила художественную школу, что дало мне хорошую базу для работы с цветом, светом и композициями. Все это помогает мне создавать нечто уникальное, где искусство и технологии переплетаются в единую структуру.</p>
+                    </div>
+                </div>
+
+                <!-- 16-е ВИДЕО (FEATURED PROJECT) -->
+                <h3 class="section-title">FEATURED PROJECT & AWARD</h3>
+                <div class="video-card expanded-award" onclick="expandVideo(this)">
+                    <div class="video-preview">
+                        <img src="img/16.jpg" alt="" class="thumb-img">
+                        <video class="hover-video" src="video/16.mp4" loop muted playsinline></video>
+                    </div>
+
+                    <div class="full-player">
+                        <video class="main-video" src="video/full/16.mp4" controls playsinline></video>
+                        <div class="close-btn">× ЗАКРЫТЬ</div>
+                    </div>
+
+                    <div class="video-info award-info">
+                        <h4 class="award-tag">✦ СЕРЕБРО НА КУБКЕ НЕЙРОКОНТЕНТА</h4>
+                        <p>«Первый кубок нейроконтента» - это специальный проект президентской платформы «Россия - страна возможностей», который поддерживает специалистов, создающих контент с помощью нейросетей для коммерческих структур. В составе команды <b>Theta group</b> я заняла второе место на этом конкурсе, создав вертикальный ролик в сжатые сроки на заданную тему.</p>
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3 class="section-title">HARD SKILLS</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">COMFY UI</span>
+                        <span class="skill-tag">AFTER EFFECTS</span>
+                        <span class="skill-tag">PHOTOSHOP</span>
+                        <span class="skill-tag">PREMIERE PRO</span>
+                        <span class="skill-tag">MIRO/FIGMA</span>
+                    </div>
+                </div>
+
+                <h3 class="section-title">CREATED PROJECTS FOR:</h3>
+                <div class="logos-grid brands-grid">
+                    <script>
+                        for(let i=1; i<=15; i++) {
+                            document.write(`<img src="img/brend${i}.png" alt="Brand ${i}">`);
+                        }
+                    </script>
+                </div>
+
+                <h3 class="section-title">I WORK WITH:</h3>
+                <div class="logos-grid studios-grid">
+                    <script>
+                        for(let i=1; i<=6; i++) {
+                            document.write(`<img src="img/studio${i}.png" alt="Studio ${i}">`);
+                        }
+                    </script>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        function copyEmail(email, element) {
+            navigator.clipboard.writeText(email);
+            const status = element.querySelector('.copy-status');
+            status.classList.add('visible');
+            setTimeout(() => status.classList.remove('visible'), 2000);
+        }
+
+        // Логика расширения видео (та же, что на главной)
+        function expandVideo(card) {
+            if (card.classList.contains('expanded')) return;
+            card.classList.add('expanded');
+            const v = card.querySelector('.main-video');
+            v.play();
+        }
+
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('close-btn')) {
+                const card = e.target.closest('.video-card');
+                card.classList.remove('expanded');
+                const v = card.querySelector('.main-video');
+                v.pause();
+                v.currentTime = 0;
+                e.stopPropagation();
+            }
+        });
+
+        // Скрипт для превью
+        document.addEventListener('mouseover', (e) => {
+            const card = e.target.closest('.video-card');
+            if (card && !card.classList.contains('expanded')) {
+                const video = card.querySelector('.hover-video');
+                if (video) video.play();
+            }
+        });
+        document.addEventListener('mouseout', (e) => {
+            const card = e.target.closest('.video-card');
+            if (card) {
+                const video = card.querySelector('.hover-video');
+                if (video) { video.pause(); video.currentTime = 0; }
+            }
+        });
+    </script>
+</body>
+</html>

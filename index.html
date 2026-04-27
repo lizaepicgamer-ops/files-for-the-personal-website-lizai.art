@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works | Lizai Art</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="main-header">
+            <div class="header-left">
+                <div class="logo"><img src="img/logo.png" alt=""></div>
+                <h1 class="page-title">VIDEO WORKS</h1>
+            </div>
+            
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+
+            <nav class="main-nav" id="mobileMenu">
+                <ul class="nav-links">
+                    <li><a href="about.html">О СЕБЕ</a></li>
+                    <li><a href="index.html" class="active">РАБОТЫ</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="layout">
+            <aside class="sidebar-contacts">
+                <div class="showreel-box">
+                    <h4>✦ SHOWREEL</h4>
+                    <div class="showreel-video">
+                        <div class="showreel-placeholder">Coming soon :)</div>
+                    </div>
+                </div>
+                <div class="stars-container">
+                    <div class="star-anim s1">✦</div>
+                    <div class="star-anim s2">✦</div>
+                    <div class="star-anim s3">✦</div>
+                </div>
+                <div class="contacts-box">
+                    <h3>КОНТАКТЫ</h3>
+                    <div class="contact-item" onclick="copyEmail('me@ee3e.ru', this)">
+                        <p>✦ EMAIL</p>
+                        <small>me@ee3e.ru</small>
+                        <span class="copy-status">Скопировано!</span>
+                    </div>
+                    <a href="https://t.me/lizai_art" target="_blank" style="text-decoration:none; color:inherit;">
+                        <div class="contact-item">
+                            <p>✦ TELEGRAM</p>
+                            <small>@lizai_art</small>
+                        </div>
+                    </a>
+                </div>
+            </aside>
+
+            <main class="content">
+                <div class="video-grid" id="videoGrid">
+                    <script>
+                        // 1. Твои данные: Название и Описание для каждого видео
+                        const projects = [
+                            { title: "Яндекс Алиса", desc: "AI-generalist | 2025" },
+                            { title: "ВТБ", desc: "AI-generalist | 2025" },
+                            { title: "МосМетро", desc: "AI-generalist | ArtDirector | 2025" },
+                            { title: "Volkswagen", desc: "AI-generalist | ArtDirector | 2025" },
+                            { title: "Gipopo", desc: "AI-generalist | 2025" },
+                            { title: "OBI", desc: "AI-generalist | 2024" },
+                            { title: "Yandex Auto 1", desc: "AI-generalist | 2026" },
+                            { title: "Yandex Auto 2", desc: "AI-generalist | 2026" },
+                            { title: "BORJOMI", desc: "HEAD AI-generalist | 2025" },
+                            { title: "Intervision", desc: "HEAD AI-generalist | 2025" },
+                            { title: "FONBET", desc: "AI-generalist | 2024" },
+                            { title: "N1", desc: "AI-generalist | 2025" },
+                            { title: "OMODA", desc: "AI-generalist | 2025" },
+                            { title: "VK Глаза", desc: "AI-generalist | 2025" },
+                            { title: "Мироторг", desc: "AI-generalist | 2025" }
+                        ];
+
+                        // 2. Генерация карточек
+                        projects.forEach((item, index) => {
+                            let i = index + 1; // Порядковый номер для файлов (1, 2, 3...)
+                            document.write(`
+                            <div class="video-card" onclick="expandVideo(this)">
+                                <span class="video-number">${i < 10 ? '0'+i : i}</span>
+        
+                                <div class="video-preview">
+                                    <img src="img/${i}.jpg" alt="" class="thumb-img">
+                                    <video class="hover-video" src="video/${i}.mp4" loop muted playsinline></video>
+                                </div>
+
+                                <div class="full-player">
+                                    <video class="main-video" src="video/full/${i}.mp4" controls playsinline preload="none"></video>
+                                    <div class="close-btn">× ЗАКРЫТЬ</div>
+                                </div>
+
+                                <div class="video-info">
+                                    <h2>${item.title}</h2>
+                                    <p>${item.desc}</p>
+                                </div>
+                            </div>`);
+                        });
+
+                        // 3. Логика расширения (обновленная)
+                        function expandVideo(card) {
+                            if (card.classList.contains('expanded')) return;
+                            document.querySelectorAll('.video-card.expanded').forEach(c => closeVideo(c));
+                            card.classList.add('expanded');
+                            const v = card.querySelector('.main-video');
+                            v.play();
+                            setTimeout(() => {
+                                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }, 300);
+                        }
+
+                        // Кнопка закрыть
+                        document.addEventListener('click', (e) => {
+                            if (e.target.classList.contains('close-btn')) {
+                                const card = e.target.closest('.video-card');
+                                    closeVideo(card);
+                                    e.stopPropagation();
+                            }
+                        });
+
+                        function closeVideo(card) {
+                            card.classList.remove('expanded');
+                            const v = card.querySelector('.main-video');
+                            v.pause();
+                            v.currentTime = 0;
+                        }
+                    </script>
+                </div>
+            
+                    <p class="footer-note">More coming soon :)</p>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        function copyEmail(email, element) {
+            navigator.clipboard.writeText(email);
+            const status = element.querySelector('.copy-status');
+            status.classList.add('visible');
+            setTimeout(() => status.classList.remove('visible'), 2000);
+        }
+    </script>
+<script>
+    // Скрипт для запуска превью при наведении
+    document.addEventListener('mouseover', (e) => {
+        const card = e.target.closest('.video-card');
+        if (card && !card.classList.contains('expanded')) {
+            const video = card.querySelector('.hover-video');
+            if (video) video.play();
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        const card = e.target.closest('.video-card');
+        if (card) {
+            const video = card.querySelector('.hover-video');
+            if (video) {
+                video.pause();
+                video.currentTime = 0;
+            }
+        }
+    });
+</script>
+</body>
+</html>
