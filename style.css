@@ -40,7 +40,10 @@ body {
 }
 
 /* МЕНЮ */
-.main-nav .nav-links { display: flex; list-style: none; gap: 50px; }
+.main-nav .nav-links { display: flex; list-style: none; gap: 50px; /* Прячем мобильные контакты по умолчанию (для компьютеров) */
+.mobile-contacts {
+    display: none;
+}
 .nav-links a { 
     color: #fff; text-decoration: none; font-size: 20px; 
     letter-spacing: 3px; font-weight: 700; opacity: 0.6; transition: 0.4s; 
@@ -281,7 +284,13 @@ body {
         text-align: left;
         margin-top: 10px;
     }
-    
+        .mobile-contacts {
+        display: block !important; /* Показываем только на маленьких экранах */
+        margin-top: 50px;
+        border-top: 1px solid rgba(188, 19, 254, 0.3);
+        padding-top: 20px;
+    }
+
     .content { margin-left: 0; padding-bottom: 100px; }
     
     /* Меню и Гамбургер */
