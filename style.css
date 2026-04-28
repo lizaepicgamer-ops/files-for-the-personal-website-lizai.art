@@ -22,14 +22,14 @@ body {
 .header-left { display: flex; align-items: center; gap: 20px; }
 .logo img { height: 40px; opacity: 0.9; }
 
-/* ЗАГОЛОВОК (Сдвинут над контентом) */
+/* ЗАГОЛОВОК */
 .page-title {
     font-size: 42px;
     letter-spacing: 5px;
     font-weight: 900;
     text-transform: uppercase;
     color: #fff;
-    margin-left: 360px; /* Выравнивание над основной информацией */
+    margin-left: 360px;
     animation: titleGlitch 3s infinite;
 }
 
@@ -40,10 +40,17 @@ body {
 }
 
 /* МЕНЮ */
-.main-nav .nav-links { display: flex; list-style: none; gap: 50px; /* Прячем мобильные контакты по умолчанию (для компьютеров) */
+.main-nav .nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 50px; 
+}
+
+/* Прячем мобильные контакты по умолчанию (для компьютеров) */
 .mobile-contacts {
     display: none;
 }
+
 .nav-links a { 
     color: #fff; text-decoration: none; font-size: 20px; 
     letter-spacing: 3px; font-weight: 700; opacity: 0.6; transition: 0.4s; 
@@ -54,7 +61,7 @@ body {
     text-shadow: 0 0 20px #bc13fe, 0 0 40px #bc13fe;
 }
 
-/* ГАМБУРГЕР (МОБИЛКА) */
+/* ГАМБУРГЕР */
 .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; }
 .menu-toggle span { width: 30px; height: 2px; background: #888; transition: 0.3s; }
 
@@ -69,41 +76,16 @@ body {
                 linear-gradient(135deg, rgba(218, 112, 214, 0.5), rgba(188, 19, 254, 0.5)) border-box;
 }
 .showreel-box h4 {
-    font-size: 17px;
-    color: #bc13fe;
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    text-align: center;
+    font-size: 17px; color: #bc13fe; letter-spacing: 2px; margin-bottom: 8px; text-align: center;
 }
-.showreel-video {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #000;
-}
-.showreel-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.showreel-video { width: 100%; aspect-ratio: 16/9; border-radius: 12px; overflow: hidden; background: #000; }
+.showreel-video video { width: 100%; height: 100%; object-fit: cover; }
 
 /* КОНТАКТЫ */
 .sidebar-contacts { position: fixed; bottom: 60px; left: 40px; width: 280px; z-index: 100; }
 
-/* ЗВЕЗДЫ */
-.stars-container { 
-    height: 100px; 
-    position: relative; 
-    margin-bottom: 15px; 
-}
-.star-anim { 
-    position: absolute; 
-    color: #bc13fe; 
-    opacity: 0; 
-    bottom: 0; 
-    filter: drop-shadow(0 0 10px #bc13fe); 
-}
+.stars-container { height: 100px; position: relative; margin-bottom: 15px; }
+.star-anim { position: absolute; color: #bc13fe; opacity: 0; bottom: 0; filter: drop-shadow(0 0 10px #bc13fe); }
 .s1 { font-size: 35px; left: 15%; animation: starFloat 3s infinite ease-in-out; }
 .s2 { font-size: 19px; left: 50%; animation: starFloat 4s infinite ease-in-out 1s; }
 .s3 { font-size: 22px; left: 80%; animation: starFloat 3.5s infinite ease-in-out 0.5s; }
@@ -115,20 +97,10 @@ body {
 }
 
 .contacts-box {
-    background: #0a0a0a;
-    padding: 30px;
-    border-radius: 25px;
-    position: relative;
-    /* Широкая рамка 4px, приглушенные цвета */
+    background: #0a0a0a; padding: 30px; border-radius: 25px; position: relative;
     border: 4px solid transparent;
     background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
                 linear-gradient(135deg, rgba(255, 0, 255, 0.25), rgba(188, 19, 254, 0.25)) border-box;
-}
-
-.sidebar-contacts::before {
-    content: ''; position: absolute; width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(188, 19, 254, 0.27) 0%, transparent 70%);
-    left: -300px; top: 50%; transform: translateY(-20%); z-index: -1;
 }
 
 .contacts-box h3 { color: #bc13fe; font-size: 17px; margin-bottom: 25px; letter-spacing: 3px; }
@@ -136,460 +108,119 @@ body {
 .contact-item p { font-size: 16px; color: #bc13fe; font-weight: 800; margin-bottom: 4px; }
 .contact-item small { font-size: 16px; color: #fff; }
 
-.copy-status {
-    position: absolute; top: -10px; right: 0; font-size: 12px; background: #bc13fe;
-    padding: 3px 8px; border-radius: 4px; opacity: 0; transition: 0.3s;
-}
-.copy-status.visible { opacity: 1; transform: translateY(-5px); }
-
 /* КОНТЕНТ */
 .content { margin-left: 360px; padding-bottom: 250px; }
 
-/* ВИДЕО КАРТОЧКИ (3 в ряд) */
-.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+/* ГРИД */
+.video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: start; }
 
 .video-card {
-    background: #0a0a0a;
-    border-radius: 20px;
-    position: relative; /* ВАЖНО для позиционирования цифр внутри */
-    transition: 0.4s;
-    /* Тонкий контур по умолчанию */
+    background: #0a0a0a; border-radius: 20px; position: relative; transition: 0.4s;
     border: 3px solid transparent;
-    background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
-                linear-gradient(135deg, #222, #444) border-box;
+    background: linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(135deg, #222, #444) border-box;
     overflow: hidden;
 }
 
 .video-card:hover { 
     transform: translateY(-10px);
-    /* Яркий контур Белый -> Розовый 135 градусов */
-    background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
-                linear-gradient(135deg, #ffaaee 0%, #8a00c4 100%) border-box;
+    background: linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(135deg, #ffaaee 0%, #8a00c4 100%) border-box;
 }
 
-.video-preview { 
-    aspect-ratio: 16/9; 
-    background: #000; 
-    border-radius: 12px; 
-    overflow: hidden; 
-    position: relative;
-    margin: 10px;
-    z-index: 1;
-}
-
-.video-preview img, .hover-video { width: 100%; height: 100%; object-fit: cover; }
-.hover-video { position: absolute; top: 0; left: 0; opacity: 0; transition: 0.3s; }
+.video-preview { aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; position: relative; margin: 10px; z-index: 1; }
+.video-preview img, .hover-video { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+.video-card:hover .thumb-img { opacity: 0; }
+.hover-video { position: absolute; top: 0; left: 0; opacity: 0; }
 .video-card:hover .hover-video { opacity: 1; }
 
-.video-info { padding: 10px 20px 25px; text-align: left; }
+.video-info { padding: 10px 20px 25px; }
 .video-info h2 { font-size: 20px; letter-spacing: 2px; margin-bottom: 5px; }
 .video-info p { font-size: 15px; color: #555; }
 
-/* ЦИФРЫ (Компьютерный стиль) */
 .video-number {
-    position: absolute;
-    top: 15px;      /* Отступ от верхнего края */
-    right: 20px;    /* ПЕРЕНЕСЛИ НА ПРАВЫЙ КРАЙ */
-    z-index: 10;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 32px; /* УМЕНЬШИЛИ РАЗМЕР (было 54px) */
-    font-weight: 900;
-    color: #ffffff;
-    line-height: 1;
-    /* Перечеркнутый ноль */
-    font-variant-numeric: slashed-zero; 
-    transition: 0.4s;
-    pointer-events: none; /* Чтобы цифра не мешала нажимать на видео */
+    position: absolute; top: 15px; right: 20px; z-index: 10;
+    font-family: 'Share Tech Mono', monospace; font-size: 32px; font-weight: 900; color: #ffffff;
 }
 
-/* Цвет цифры при наведении на карточку остается фиолетовым */
-.video-card:hover .video-number {
-    color: #bc13fe;
-    text-shadow: 0 0 20px rgba(188, 19, 254, 0.6);
-}
-
-/* ОБ ЭТОМ (ABOUT) */
+/* ABOUT PAGE */
 .about-top { display: flex; gap: 60px; margin-bottom: 80px; align-items: center; }
-.about-photo {
-    width: 350px;
-    aspect-ratio: 3 / 4; /* Формат 3:4 */
-    border-radius: 25px;
-    overflow: hidden;
-    border: 2px solid #bc13fe;
-    flex-shrink: 0;
-    position: relative;
-}
+.about-photo { width: 350px; aspect-ratio: 3 / 4; border-radius: 25px; overflow: hidden; border: 2px solid #bc13fe; flex-shrink: 0; position: relative; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; position: absolute; transition: 0.5s; }
+.about-photo .photo-hover { opacity: 0; }
+.about-photo:hover .photo-main { opacity: 0; }
+.about-photo:hover .photo-hover { opacity: 1; }
 
-.about-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-.about-photo .photo-hover {
-    opacity: 0;
-}
-.about-photo:hover .photo-main {
-    opacity: 0;
-}
-.about-photo:hover .photo-hover {
-    opacity: 1;
-}
 .intro-text h2 { font-size: 40px; color: #bc13fe; margin-bottom: 20px; font-weight: 900; }
 .intro-text p { font-size: 18px; line-height: 1.7; color: #eee; }
 
-.achievement-wide {
-    background: rgba(188, 19, 254, 0.05);
-    border-left: 6px solid #bc13fe; padding: 40px; margin: 60px 0; border-radius: 0 25px 25px 0;
-    display: flex; gap: 40px; align-items: center;
-}
-.ach-vid { width: 300px; aspect-ratio: 16/9; background: #000; border-radius: 12px; flex-shrink: 0; overflow: hidden; }
-.ach-vid video { width: 100%; height: 100%; object-fit: cover; }
-
 .skills-section { margin-bottom: 100px; }
 .skills-grid { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 30px; }
-.skill-tag { 
-    padding: 12px 30px; 
-    background: rgba(255,255,255,0.05); 
-    border: 2px solid #bc13fe;
-    border-radius: 50px; 
-    font-size: 14px; font-weight: 700; color: #fff;
-}
+.skill-tag { padding: 12px 30px; background: rgba(255,255,255,0.05); border: 2px solid #bc13fe; border-radius: 50px; font-size: 14px; font-weight: 700; }
 
 .section-title { color: #bc13fe; letter-spacing: 3px; font-size: 20px; margin-bottom: 40px; text-transform: uppercase; }
 .logos-grid { display: flex; flex-wrap: wrap; gap: 40px 60px; align-items: center; margin-bottom: 80px; }
-.logos-grid img { height: 60px; transition: 0.4s ease; }
+.logos-grid img { height: 60px; transition: 0.4s; filter: grayscale(1); opacity: 0.6; }
+.logos-grid img:hover { filter: grayscale(0); opacity: 1; transform: scale(1.1); }
 
-.brands-grid img { filter: grayscale(1); opacity: 0.6; }
-.brands-grid img:hover { filter: grayscale(0); opacity: 1; transform: scale(1.1); }
+/* РАСШИРЕННАЯ КАРТОЧКА (DESKTOP) */
+.video-card.expanded { grid-column: 1 / -1; background: #0a0a0a; border: 3px solid #bc13fe; transform: none !important; z-index: 10; }
+.video-card.expanded .video-preview, .video-card.expanded .video-number { display: none; }
+.full-player { display: none; width: 100%; background: #000; position: relative; padding: 10px; }
+.video-card.expanded .full-player { display: block; }
+.main-video { width: 100%; aspect-ratio: 16/9; border-radius: 10px; box-shadow: 0 0 50px rgba(188, 19, 254, 0.2); }
+.close-btn { position: absolute; top: 20px; right: 25px; background: rgba(0,0,0,0.7); color: #fff; padding: 8px 15px; cursor: pointer; border: 1px solid #bc13fe; z-index: 5; }
 
-.studios-grid img { 
-    height: 90px;     
-    opacity: 0.7; 
-    filter: brightness(1.2); 
-}
-.studios-grid img:hover { opacity: 1; transform: scale(1.1); }
+/* НАГРАДА */
+.expanded-award { max-width: 900px; margin-bottom: 80px; border-left: 6px solid #bc13fe !important; background: rgba(188, 19, 254, 0.03) !important; }
+.award-tag { color: #bc13fe; font-size: 18px; margin-bottom: 20px; font-weight: 800; }
 
-/* МОБИЛКА */
+/* МОБИЛЬНАЯ ВЕРСИЯ */
 @media (max-width: 1024px) {
-        .container { padding: 0 20px; }
-    
-    /* Исправляем заголовок страницы */
-    .page-title { 
-        margin-left: 0 !important; 
-        font-size: 24px; 
-        text-align: left;
-        margin-top: 10px;
-    }
-        .mobile-contacts {
-        display: block !important; /* Показываем только на маленьких экранах */
-        margin-top: 50px;
-        border-top: 1px solid rgba(188, 19, 254, 0.3);
-        padding-top: 20px;
-    }
-
+    .container { padding: 0 20px; }
+    .page-title { margin-left: 0 !important; font-size: 24px; margin-top: 10px; }
     .content { margin-left: 0; padding-bottom: 100px; }
     
-    /* Меню и Гамбургер */
     .menu-toggle { display: flex; }
     .main-nav {
         position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
         background: #050505; z-index: 1000; padding: 100px 40px; transition: 0.5s;
-        display: flex; flex-direction: column; justify-content: space-between;
+        display: flex; flex-direction: column;
     }
     .main-nav.active { right: 0; }
     .nav-links { flex-direction: column; gap: 30px; }
     .nav-links a { font-size: 32px; }
 
-    /* Контакты внутри мобильного меню */
-    .mobile-contacts { margin-top: auto; padding-bottom: 50px; border-top: 1px solid #bc13fe; pt: 30px; }
-    .mobile-contacts h3 { color: #bc13fe; margin-bottom: 15px; font-size: 18px; letter-spacing: 2px; }
+    .mobile-contacts { 
+        display: block !important; 
+        margin-top: auto; 
+        padding-bottom: 50px; 
+        border-top: 1px solid #bc13fe; 
+        padding-top: 30px; 
+    }
+    .mobile-contacts h3 { color: #bc13fe; margin-bottom: 15px; font-size: 18px; }
     .mobile-contacts p { font-size: 20px; margin-bottom: 10px; color: #fff; }
 
-    .sidebar-contacts { display: none; } /* Прячем обычный сайдбар */
-
-    /* Видео-сетка */
+    .sidebar-contacts { display: none; }
     .video-grid { grid-template-columns: 1fr; gap: 15px; }
     
-    /* Обычные карточки работ на главной - компактные */
     .video-card { display: flex; align-items: center; height: 110px; padding: 5px; }
     .video-card .video-preview { width: 140px; height: 80px; margin: 0 10px; flex-shrink: 0; }
     .video-card .video-info h2 { font-size: 16px; }
     .video-number { display: none; }
 
-    /* ИСКЛЮЧЕНИЕ ДЛЯ НАГРАДЫ (About Me) */
-    .expanded-award { 
-        display: block !important; /* Делаем её вертикальной, а не в ряд */
-        height: auto !important; 
-        padding: 0 !important;
-        margin-bottom: 40px;
-    }
-    .expanded-award .video-preview {
-        width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16/9;
-        margin: 0 !important;
-        border-radius: 15px 15px 0 0;
-    }
-    .expanded-award .video-info { padding: 20px !important; }
-    .expanded-award .award-tag { font-size: 14px; }
-    .expanded-award .award-info p { font-size: 14px; margin-left: 0; }
-
-    /* Страница About Me мобильная версия */
-    .about-top { flex-direction: column; text-align: left; gap: 30px; }
-    .about-photo { width: 100%; max-width: 300px; margin: 0 auto; }
-    .intro-text h2 { font-size: 32px; }
+    .expanded-award { display: block !important; height: auto !important; padding: 0 !important; }
+    .expanded-award .video-preview { width: 100% !important; height: auto !important; margin: 0 !important; }
     
-    /* Чтобы заголовки секций (HARD SKILLS и т.д.) были видны */
-    .section-title { 
-        font-size: 18px; 
-        margin: 40px 0 20px 0; 
-        display: block !important; 
-        visibility: visible !important;
-    }
+    .about-top { flex-direction: column; text-align: left; }
+    .about-photo { width: 100%; max-width: 300px; margin: 0 auto; }
 
-    /* Когда карточка расширена на весь экран на мобилке */
+    /* ПЛЕЕР НА ВЕСЬ ЭКРАН МОБИЛКИ */
     .video-card.expanded {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-        z-index: 2000; display: block; overflow-y: auto; padding: 0; border-radius: 0;
+        position: fixed !important; top: 0 !important; left: 0 !important;
+        width: 100% !important; height: 100vh !important; z-index: 9999 !important;
+        background: #050505 !important; overflow-y: auto; display: block !important;
     }
-    .video-card.expanded .main-video { border-radius: 0; }
-}
-/* Уточняем сетку */
-.video-grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px; 
-    align-items: start; /* Чтобы карточки не растягивались по высоте соседа */
+    .video-card.expanded .main-video { aspect-ratio: 16/9; max-height: 70vh; }
+    .video-card.expanded .video-info { padding: 20px 25px 80px !important; }
 }
 
-/* СОСТОЯНИЕ РАСШИРЕННОЙ КАРТОЧКИ */
-.video-card.expanded {
-    grid-column: 1 / -1; /* Занимает всю ширину (3 колонки) */
-    background: #0a0a0a;
-    border: 3px solid #bc13fe;
-    transform: none !important; /* Убираем наклон при наведении */
-    z-index: 10;
-}
-
-/* Скрываем превью, когда видео расширено */
-.video-card.expanded .video-preview,
-.video-card.expanded .video-number {
-    display: none;
-}
-
-/* Полноразмерный плеер */
-.full-player {
-    display: none;
-    width: 100%;
-    background: #000;
-    position: relative;
-    padding: 10px;
-}
-
-.video-card.expanded .full-player {
-    display: block;
-}
-
-.main-video {
-    width: 100%;
-    aspect-ratio: 16/9;
-    border-radius: 10px;
-    outline: none;
-    box-shadow: 0 0 50px rgba(188, 19, 254, 0.2);
-}
-
-/* Кнопка закрыть */
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    background: rgba(0,0,0,0.7);
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 14px;
-    z-index: 5;
-    border: 1px solid #bc13fe;
-    transition: 0.3s;
-}
-.close-btn:hover { background: #bc13fe; }
-
-/* Текст внизу как на YouTube */
-.video-card.expanded .video-info {
-    padding: 20px 10px 30px;
-}
-.video-card.expanded .video-info h2 {
-    font-size: 28px;
-    color: #fff;
-}
-.video-card.expanded .video-info p {
-    font-size: 14px;
-    color: #bc13fe;
-}
-
-/* Мобильная версия */
-@media (max-width: 1024px) {
-    .video-grid { grid-template-columns: 1fr; }
-    /* СОСТОЯНИЕ РАСШИРЕННОЙ КАРТОЧКИ НА МОБИЛКЕ */
-    .video-card.expanded {
-        position: fixed !important; /* Фиксируем на весь экран */
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100vh !important;
-        z-index: 9999 !important; /* Поверх всего */
-        background: #050505 !important; /* Плотный черный фон, чтобы ничего не просвечивало */
-        margin: 0 !important;
-        padding: 0 !important;
-        overflow-y: auto; /* Позволяем листать описание, если оно длинное */
-        display: block !important;
-        border: none !important;
-    }
-
-    /* Плеер внутри расширенной карточки */
-    .video-card.expanded .full-player {
-        padding: 0 !important;
-        background: #000;
-    }
-
-    .video-card.expanded .main-video {
-        width: 100% !important;
-        aspect-ratio: 16/9; /* Или 9/16, если ролик вертикальный */
-        border-radius: 0 !important;
-        max-height: 70vh; /* Чтобы оставалось место для текста под видео */
-        object-fit: contain;
-    }
-
-    /* Инфо под видео в расширенном режиме */
-    .video-card.expanded .video-info {
-        padding: 20px 25px 80px !important; /* Большой отступ снизу для удобства */
-        background: #050505;
-    }
-
-    /* Кнопка закрыть на мобилке */
-    .video-card.expanded .close-btn {
-        top: 15px !important;
-        right: 15px !important;
-        padding: 10px 20px !important;
-        background: rgba(188, 19, 254, 0.9) !important; /* Яркая кнопка, чтобы не потерять */
-        border: none !important;
-        font-weight: bold;
-    }
-}
-
-}
-
-/* Фикс для страницы About, где нет гридов */
-.content > .video-card.expanded {
-    max-width: 100% !important;
-    width: 100%;
-}
-.video-card:hover .thumb-img {
-    opacity: 0;
-}
-.video-card .thumb-img {
-    transition: opacity 0.3s ease;
-}
-.video-card:hover .hover-video {
-    opacity: 1;
-}
-
-/* Стили для карточки с наградой на странице About */
-.expanded-award {
-    max-width: 900px;
-    margin-bottom: 80px;
-    /* Добавляем акцентную левую рамку как была в достижении */
-    border-left: 6px solid #bc13fe !important; 
-    background: rgba(188, 19, 254, 0.03) !important;
-}
-
-.award-tag {
-    color: #bc13fe;
-    font-size: 18px;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    font-weight: 800;
-}
-
-
-.award-info p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ccc;
-    max-width: 700px;
-}
-
-/* Фикс: чтобы когда карточка НЕ расширена, текст награды тоже был виден красиво */
-.expanded-award .video-info {
-    padding: 30px;
-}
-
-/* Убираем цифру, если её нет в HTML, чтобы не было пустого места */
-.expanded-award .video-number {
-    display: none;
-}
-
-/* Если карточка раскрыта на весь экран */
-.expanded-award.expanded {
-    max-width: 100% !important;
-    border-left: none !important;
-}
-
-.footer-note {
-    text-align: center;
-    width: 100%;
-    margin-top: 80px;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 18px;
-    color: #fff;
-    opacity: 0.5;
-    letter-spacing: 2px;
-}
-
-.showreel-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000;
-    color: #fff;
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 14px;
-    letter-spacing: 1px;
-    text-align: center;
-}
-
-/* Отменяем фиолетовый цвет текста для описания награды при раскрытии */
-.video-card.expanded.expanded-award .video-info p {
-    color: #eeeeee !important; /* Возвращаем светло-серый/белый цвет */
-    opacity: 0.9;
-}
-
-/* Увеличиваем отступы текста от краев в блоке награды */
-.expanded-award .video-info {
-    padding: 40px 60px 60px 60px !important; /* Верх, Право, Низ, Лево */
-}
-
-/* Дополнительный небольшой отступ именно для текста, чтобы он не был вплотную к полоске */
-.award-info p {
-    margin-left: 10px; 
-    max-width: 95%; /* Чтобы текст не упирался в правый край */
-}
-
-/* На мобилках сделаем отступы чуть меньше, чтобы текст не был слишком узким */
-@media (max-width: 1024px) {
-    .expanded-award .video-info {
-        padding: 30px 20px !important;
-    }
-    .award-info p {
-        margin-left: 0;
-        max-width: 100%;
-    }
-}
+.footer-note { text-align: center; margin-top: 80px; opacity: 0.5; font-family: 'Share Tech Mono', monospace; }
