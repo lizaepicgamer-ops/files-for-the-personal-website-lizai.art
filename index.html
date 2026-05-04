@@ -174,5 +174,16 @@
         }
     });
 </script>
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.main-header');
+        // Если прокрутили больше 50 пикселей, добавляем класс для уменьшения
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>
