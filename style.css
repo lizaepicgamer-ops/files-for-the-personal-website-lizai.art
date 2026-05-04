@@ -161,7 +161,7 @@ body {
 .copy-status.visible { opacity: 1; transform: translateY(-5px); }
 
 /* КОНТЕНТ */
-.content { margin-left: 360px; padding-bottom: 250px; }
+.content { margin-left: 360px; padding-bottom: 250px; padding-top: 20px; }
 
 /* ВИДЕО КАРТОЧКИ (3 в ряд) */
 .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
