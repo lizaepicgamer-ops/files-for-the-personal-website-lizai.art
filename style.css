@@ -16,12 +16,24 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0; /* Уменьшил отступы, чтобы шапка не была слишком огромной при скролле */
+    
+    /* Твой изначальный отступ X (60px сверху и снизу) */
+    padding: 60px 0; 
+    
     position: sticky;
     top: 0;
-    background-color: #050505; /* Цвет фона, чтобы контент не просвечивал под текстом */
+    background-color: #050505;
     z-index: 1000;
-    border-bottom: 1px solid rgba(188, 19, 254, 0.1); /* Тонкая линия снизу для отделения от контента */
+    
+    /* Плавная анимация изменения высоты */
+    transition: padding 0.4s ease, background-color 0.4s ease;
+    border-bottom: 1px solid transparent;
+}
+
+/* Состояние после скролла (X - 50% = 30px) */
+.main-header.scrolled {
+    padding: 30px 0; 
+    border-bottom: 1px solid rgba(188, 19, 254, 0.2); /* Появляется тонкая линия при скролле */
 }
 
 .header-left { display: flex; align-items: center; gap: 20px; }
@@ -149,7 +161,7 @@ body {
 .copy-status.visible { opacity: 1; transform: translateY(-5px); }
 
 /* КОНТЕНТ */
-.content { margin-left: 360px; padding-bottom: 250px; }
+.content { margin-left: 360px; padding-bottom: 250px; padding-top: 20px; }
 
 /* ВИДЕО КАРТОЧКИ (3 в ряд) */
 .video-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
