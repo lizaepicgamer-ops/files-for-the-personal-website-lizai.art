@@ -16,7 +16,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 0;
+    padding: 20px 0; /* Уменьшил отступы, чтобы шапка не была слишком огромной при скролле */
+    position: sticky;
+    top: 0;
+    background-color: #050505; /* Цвет фона, чтобы контент не просвечивал под текстом */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(188, 19, 254, 0.1); /* Тонкая линия снизу для отделения от контента */
 }
 
 .header-left { display: flex; align-items: center; gap: 20px; }
@@ -207,6 +212,10 @@ body {
 .video-card:hover .video-number {
     color: #bc13fe;
     text-shadow: 0 0 20px rgba(188, 19, 254, 0.6);
+}
+.layout {
+    display: flex;
+    margin-top: 40px; /* Отступ контента от закрепленной шапки */
 }
 
 /* ОБ ЭТОМ (ABOUT) */
