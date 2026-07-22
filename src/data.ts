@@ -1,0 +1,268 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+export interface Project {
+  id: string;
+  titleRu: string;
+  titleEn: string;
+  descRu: string;
+  descEn: string;
+  img: string;
+  hoverVideo: string;
+  fullVideo: string;
+  date: string; // YYYY-MM format
+  isAward?: boolean;
+}
+
+export const projectsData: Project[] = [
+  {
+    id: "yandex-alisa",
+    titleRu: "Яндекс Алиса",
+    titleEn: "Yandex Alisa",
+    descRu: "AI-генералист | 2025",
+    descEn: "AI-generalist | 2025",
+    img: "img/1.jpg",
+    hoverVideo: "video/1.mp4",
+    fullVideo: "video/full/1.mp4",
+    date: "2025-12",
+  },
+  {
+    id: "volkswagen",
+    titleRu: "Volkswagen",
+    titleEn: "Volkswagen",
+    descRu: "AI-генералист | Арт-директор | 2025",
+    descEn: "AI-generalist | Art Director | 2025",
+    img: "img/4.jpg",
+    hoverVideo: "video/4.mp4",
+    fullVideo: "video/full/4.mp4",
+    date: "2025-09",
+  },
+  {
+    id: "mosmetro",
+    titleRu: "МосМетро",
+    titleEn: "MosMetro",
+    descRu: "AI-генералист | Арт-директор | 2025",
+    descEn: "AI-generalist | Art Director | 2025",
+    img: "img/3.jpg",
+    hoverVideo: "video/3.mp4",
+    fullVideo: "video/full/3.mp4",
+    date: "2025-10",
+  },
+  {
+    id: "The last drop",
+    titleRu: "Последняя капля",
+    titleEn: "The Last Drop",
+    descRu: "AI-генералист | 2026",
+    descEn: "AI-generalist | 2026",
+    img: "img/the_last-drop.png",
+    hoverVideo: "video/preview_the_last-drop.mp4",
+    fullVideo: "video/full/the_last-drop.mp4",
+    date: "2026-03",
+  },
+  /*{
+    id: "citydryve",
+    titleRu: "СитиДрайв",
+    titleEn: "CityDryve",
+    descRu: "LEAD AI-генералист | 2026",
+    descEn: "LEAD AI-generalist | 2026",
+    img: "img/3.jpg",
+    hoverVideo: "video/preview_citydrive_25s_1920x1080.mp4",
+    fullVideo: "video/full/citydrive_25s_1920x1080.mp4",
+    date: "2026-07",
+  },*/
+  {
+    id: "vtb",
+    titleRu: "ВТБ",
+    titleEn: "VTB",
+    descRu: "AI-генералист | 2025",
+    descEn: "AI-generalist | 2025",
+    img: "img/2.jpg",
+    hoverVideo: "video/2.mp4",
+    fullVideo: "video/full/2.mp4",
+    date: "2025-11",
+  },
+  {
+    id: "gipopo",
+    titleRu: "Gipopo",
+    titleEn: "Gipopo",
+    descRu: "AI-генералист | 2025",
+    descEn: "AI-generalist | 2025",
+    img: "img/5.jpg",
+    hoverVideo: "video/5.mp4",
+    fullVideo: "video/full/5.mp4",
+    date: "2025-08",
+  },
+  {
+    id: "we_are_faigame",
+    titleRu: "We Are FairGame",
+    titleEn: "We Are FairGame",
+    descRu: "LEAD AI-генералист | 2026",
+    descEn: "LEAD AI-generalist | 2026",
+    img: "img/Fair_Game.png",
+    hoverVideo: "video/preview_Fair_Game_Render.mp4",
+    fullVideo: "video/full/Fair_Game_Render.mp4",
+    date: "2026-05",
+  },
+  {
+    id: "yandex-auto-1",
+    titleRu: "Яндекс Авто 1",
+    titleEn: "Yandex Auto 1",
+    descRu: "AI-генералист | 2026",
+    descEn: "AI-generalist | 2026",
+    img: "img/7.jpg",
+    hoverVideo: "video/7.mp4",
+    fullVideo: "video/full/7.mp4",
+    date: "2026-05",
+  },
+  {
+    id: "yandex-auto-2",
+    titleRu: "Яндекс Авто 2",
+    titleEn: "Yandex Auto 2",
+    descRu: "AI-генералист | 2026",
+    descEn: "AI-generalist | 2026",
+    img: "img/8.jpg",
+    hoverVideo: "video/8.mp4",
+    fullVideo: "video/full/8.mp4",
+    date: "2026-06",
+  },
+  {
+    id: "speloe_leto",
+    titleRu: "Спелое Лето",
+    titleEn: "Ripe Summer",
+    descRu: "AI-генералист | 2026",
+    descEn: "AI-generalist | 2026",
+    img: "img/sl.jpg",
+    hoverVideo: "video/preview_ambi_sl_20sec.mp4",
+    fullVideo: "video/full/ambi_sl_20sec.mp4",
+    date: "2026-05",
+  },
+  {
+    id: "obi",
+    titleRu: "OBI",
+    titleEn: "OBI",
+    descRu: "AI-генералист | 2024",
+    descEn: "AI-generalist | 2024",
+    img: "img/6.jpg",
+    hoverVideo: "video/6.mp4",
+    fullVideo: "video/full/6.mp4",
+    date: "2024-11",
+  },
+  {
+    id: "borjomi",
+    titleRu: "BORJOMI",
+    titleEn: "BORJOMI",
+    descRu: "LEAD AI-генералист | 2025",
+    descEn: "LEAD AI-generalist | 2025",
+    img: "img/9.jpg",
+    hoverVideo: "video/9.mp4",
+    fullVideo: "video/full/9.mp4",
+    date: "2025-07",
+  },
+  {
+    id: "intervision",
+    titleRu: "Intervision",
+    titleEn: "Intervision",
+    descRu: "LEAD AI-генералист | 2025",
+    descEn: "LEAD AI-generalist | 2025",
+    img: "img/10.jpg",
+    hoverVideo: "video/10.mp4",
+    fullVideo: "video/full/10.mp4",
+    date: "2025-06",
+  },
+  {
+    id: "fonbet",
+    titleRu: "FONBET",
+    titleEn: "FONBET",
+    descRu: "AI-генералист | 2024",
+    descEn: "AI-generalist | 2024",
+    img: "img/11.jpg",
+    hoverVideo: "video/11.mp4",
+    fullVideo: "video/full/11.mp4",
+    date: "2024-10",
+  },
+  {
+    id: "n1",
+    titleRu: "N1",
+    titleEn: "N1",
+    descRu: "AI-генералист | 2025",
+    descEn: "AI-generalist | 2025",
+    img: "img/12.jpg",
+    hoverVideo: "video/12.mp4",
+    fullVideo: "video/full/12.mp4",
+    date: "2025-05",
+  },
+    {
+    id: "olimpbet",
+    titleRu: "OLIMPBET",
+    titleEn: "OLIMPBET",
+    descRu: "AI-генералист | 2025",
+    descEn: "AI-generalist | 2025",
+    img: "img/Olimpbet.png",
+    hoverVideo: "video/preview_ambi_Olimpbet_Car_1х1.mp4",
+    fullVideo: "video/full/ambi_Olimpbet_Car_1х1.mp4",
+    date: "2025-02",
+  },
+  {
+    id: "omoda",
+    titleRu: "OMODA",
+    titleEn: "OMODA",
+    descRu: "AI-генералист | 2025",
+    descEn: "AI-generalist | 2025",
+    img: "img/13.jpg",
+    hoverVideo: "video/13.mp4",
+    fullVideo: "video/full/13.mp4",
+    date: "2025-04",
+  },
+  {
+    id: "vk-glaza",
+    titleRu: "VK Глаза",
+    titleEn: "VK Glaza",
+    descRu: "AI-генералист | 2025",
+    descEn: "AI-generalist | 2025",
+    img: "img/14.jpg",
+    hoverVideo: "video/14.mp4",
+    fullVideo: "video/full/14.mp4",
+    date: "2025-03",
+  },
+  {
+    id: "miratorg",
+    titleRu: "Мираторг",
+    titleEn: "Miratorg",
+    descRu: "AI-генералист | 2025",
+    descEn: "AI-generalist | 2025",
+    img: "img/15.jpg",
+    hoverVideo: "video/15.mp4",
+    fullVideo: "video/full/15.mp4",
+    date: "2025-02",
+  },
+  {
+    id: "silver-cup",
+    titleRu: "✦ СЕРЕБРО НА КУБКЕ НЕЙРОКОНТЕНТА",
+    titleEn: "✦ SILVER AT THE NEUROCONTENT CUP",
+    descRu: "«Первый кубок нейроконтента» - это специальный проект президентской платформы «Россия - страна возможностей», который поддерживает специалистов, создающих контент с помощью нейросетей для коммерческих структур. В составе команды Theta group я заняла второе место на этом конкурсе, создав вертикальный ролик в сжатые сроки на заданную тему.",
+    descEn: "'The First Neurocontent Cup' is a special project of the presidential platform 'Russia - Land of Opportunity', which supports specialists who create content using neural networks for commercial organizations. As part of the Theta group team, I took second place in this competition, creating a vertical video under a tight deadline on a given theme.",
+    img: "img/16.jpg",
+    hoverVideo: "video/silver_place.mp4",
+    fullVideo: "video/full/silver_place.mp4",
+    date: "2025-10",
+    isAward: true,
+  }
+];
+
+/**
+ * Format string YYYY-MM to word date based on language
+ */
+export function formatDate(dateStr: string, lang: 'RU' | 'EN'): string {
+  if (!dateStr) return "";
+  const [year, month] = dateStr.split("-");
+  const monthIdx = parseInt(month, 10) - 1;
+  const monthNames = {
+    EN: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    RU: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+  };
+
+  const monthWord = monthNames[lang][monthIdx] || "";
+  return lang === 'RU' ? `${monthWord} ${year}` : `${monthWord} ${year}`;
+}

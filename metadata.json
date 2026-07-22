@@ -1,0 +1,6 @@
+{
+  "name": "Lizai Art Portfolio",
+  "description": "Interactive AI artist video portfolio for Lizai Art featuring video previews, detailed descriptions, and custom styling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,75 @@
+import subprocess
+import os
+from datetime import datetime
+
+def create_previews():
+    # --- НАСТРОЙКИ ---
+    input_folder = 'full'
+    output_folder = '.'
+    
+    # Укажите дату и время, после которых файлы считаются "новыми"
+    # Формат: Год, Месяц, День, Час, Минута
+    threshold_date = datetime(2026, 7, 10, 14, 0)
+    threshold_timestamp = threshold_date.timestamp()
+    
+    # Список расширений (чтобы не пытаться обработать картинки или другие файлы)
+    video_extensions = ('.mp4', '.mkv', '.mov', '.avi', '.wmv')
+    
+    # Проверяем ffmpeg
+    ffmpeg_path = './ffmpeg.exe' if os.path.exists('ffmpeg.exe') else 'ffmpeg'
+    
+    if not os.path.exists(input_folder):
+        print(f"Ошибка: Папка '{input_folder}' не найдена!")
+        return
+
+    files = os.listdir(input_folder)
+    processed_count = 0
+
+    print(f"Поиск файлов, измененных после: {threshold_date.strftime('%d.%m.%Y %H:%M')}")
+
+    for filename in files:
+        # Проверяем расширение
+        if not filename.lower().endswith(video_extensions):
+            continue
+
+        input_path = os.path.join(input_folder, filename)
+        
+        # Получаем время последнего изменения файла
+        file_mtime = os.path.getmtime(input_path)
+
+        # СРАВНЕНИЕ ПО ДАТЕ: Если файл старее нашей даты — пропускаем
+        if file_mtime < threshold_timestamp:
+            continue
+
+        output_name = f"preview_{filename}"
+        output_path = os.path.join(output_folder, output_name)
+        
+        # Форматируем время файла для вывода в консоль
+        file_time_str = datetime.fromtimestamp(file_mtime).strftime('%d.%m.%Y %H:%M')
+        print(f"--- Обработка: {filename} (Дата: {file_time_str}) ---")
+        
+        command = [
+            ffmpeg_path,
+            '-ss', '2',
+            '-i', input_path,
+            '-t', '6',
+            '-vf', 'scale=-2:480',
+            '-c:v', 'libx264',
+            '-crf', '32',
+            '-preset', 'fast', 
+            '-y',
+            output_path
+        ]
+
+        try:
+            subprocess.run(command, check=True)
+            print(f"Успешно: {output_name}")
+            processed_count += 1
+        except Exception as e:
+            print(f"Ошибка при обработке {filename}: {e}")
+
+    print(f"\nГотово!")
+    print(f"Обработано новых файлов: {processed_count}")
+
+if __name__ == "__main__":
+    create_previews()
