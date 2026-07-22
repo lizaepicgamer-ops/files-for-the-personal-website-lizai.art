@@ -91,7 +91,7 @@ export default function App() {
         <div className="header-left">
           <div className="logo">
             <img 
-              src="img/logo.png" 
+              src="img/logoforsite.png" 
               alt="Lizai Art" 
               onError={(e) => { e.currentTarget.style.display = "none"; }}
             />
