@@ -89,7 +89,7 @@ export const projectsData: Project[] = [
     titleEn: "CityDryve",
     descRu: "LEAD AI-генералист | 2026",
     descEn: "LEAD AI-generalist | 2026",
-    img: "img/3.jpg",
+    img: "img/citydrive.jpg",
     hoverVideo: "video/preview_citydrive_25s.mp4",
     fullVideo: "video/full/citydrive_25s.mp4",
     date: "2026-07",
