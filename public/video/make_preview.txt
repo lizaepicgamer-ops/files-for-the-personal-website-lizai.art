@@ -9,7 +9,7 @@ def create_previews():
     
     # Укажите дату и время, после которых файлы считаются "новыми"
     # Формат: Год, Месяц, День, Час, Минута
-    threshold_date = datetime(2026, 7, 10, 14, 0)
+    threshold_date = datetime(2026, 8, 30, 23, 0)
     threshold_timestamp = threshold_date.timestamp()
     
     # Список расширений (чтобы не пытаться обработать картинки или другие файлы)
