@@ -287,6 +287,11 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const hoverVideoRef = useRef<HTMLVideoElement | null>(null);
   const mainVideoRef = useRef<HTMLVideoElement | null>(null);
 
+  const fullVideo =
+  lang === "EN" && project.fullVideoEn
+    ? project.fullVideoEn
+    : project.fullVideo;
+
   const handleMouseEnter = () => {
     if (isExpanded) return;
     if (hoverVideoRef.current) hoverVideoRef.current.play().catch(() => {});
@@ -323,9 +328,8 @@ const VideoCard: React.FC<VideoCardProps> = ({
           alt={lang === "RU" ? project.titleRu : project.titleEn} 
           className="thumb-img" 
         />
-        <video ref={hoverVideoRef} className="hover-video" src={project.hoverVideo} loop muted playsInline />
+        <video ref={mainVideoRef} className="main-video" src={fullVideo} controls playsInline preload="auto" />
       </div>
-
       <div className="full-player">
         <video ref={mainVideoRef} className="main-video" src={project.fullVideo} controls playsInline preload="auto" />
         <div className="close-btn" onClick={onClose}>

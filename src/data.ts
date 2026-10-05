@@ -12,6 +12,7 @@ export interface Project {
   img: string;
   hoverVideo: string;
   fullVideo: string;
+  fullVideoEn?: string;
   date: string; // YYYY-MM format
   isAward?: boolean;
 }
@@ -26,6 +27,7 @@ export const projectsData: Project[] = [
     img: "img/VESNUSHKI.png",
     hoverVideo: "video/preview_SberMobile_vesnyshki.mp4",
     fullVideo: "video/full/SberMobile_vesnyshki.mp4",
+    fullVideoEn: "video/ENG_version/sbermobail_vesnushki_ENG.MOV",
     date: "2026-08",
   },
   {
@@ -48,6 +50,7 @@ export const projectsData: Project[] = [
     img: "img/3.jpg",
     hoverVideo: "video/3.mp4",
     fullVideo: "video/full/3.mp4",
+    fullVideoEn: "video/ENG_version/mos_metro_ENG.MOV",
     date: "2025-10",
   },
   {
@@ -70,6 +73,7 @@ export const projectsData: Project[] = [
     img: "img/1.jpg",
     hoverVideo: "video/1.mp4",
     fullVideo: "video/full/1.mp4",
+    fullVideoEn: "video/ENG_version/yandex_alica_ENG.mp4",
     date: "2025-12",
   },
   {
@@ -92,6 +96,7 @@ export const projectsData: Project[] = [
     img: "img/citydrive.jpg",
     hoverVideo: "video/preview_citydrive_25s.mp4",
     fullVideo: "video/full/citydrive_25s.mp4",
+    fullVideoEn: "video/ENG_version/citydrive_ENG.MOV",
     date: "2026-07",
   },
   {
@@ -103,6 +108,7 @@ export const projectsData: Project[] = [
     img: "img/RASTISHKA.jpg",
     hoverVideo: "video/preview_Rastishka.mp4",
     fullVideo: "video/full/Rastishka.mp4",
+    fullVideoEn: "video/ENG_version/rastizavrs_ENG.MOV",
     date: "2026-05",
   },
   {
@@ -114,6 +120,7 @@ export const projectsData: Project[] = [
     img: "img/2.jpg",
     hoverVideo: "video/2.mp4",
     fullVideo: "video/full/2.mp4",
+    fullVideoEn: "video/ENG_version/vtb_ENG.mp4",
     date: "2025-11",
   },
   {
@@ -169,6 +176,7 @@ export const projectsData: Project[] = [
     img: "img/LAPOCHKA.jpg",
     hoverVideo: "video/preview_LAPOCHKA.mp4",
     fullVideo: "video/full/LAPOCHKA.mp4",
+    fullVideoEn: "video/ENG_version/lapochka_ENG.MOV",
     date: "2026-03",
   },
   {
@@ -290,6 +298,7 @@ export const projectsData: Project[] = [
     img: "img/16.jpg",
     hoverVideo: "video/silver_place.mp4",
     fullVideo: "video/full/silver_place.mp4",
+    fullVideoEn: "video/ENG_version/selver_place_ENG.MOV",
     date: "2025-10",
     isAward: true,
   }
