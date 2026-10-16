@@ -65,6 +65,17 @@ export const projectsData: Project[] = [
     date: "2026-03",
   },
   {
+    id: "О!стровок",
+    titleRu: "О!стровок: серия 1",
+    titleEn: "O!strovok: part 1",
+    descRu: "LEAD AI-генералист | 2026",
+    descEn: "LEAD AI-generalist | 2026",
+    img: "img/ostrovok.png",
+    hoverVideo: "video/preview_ostrovok.mp4",
+    fullVideo: "video/full/ostrovok.mp4",
+    date: "2026-09",
+  },
+  {
     id: "yandex-alisa",
     titleRu: "Яндекс Алиса",
     titleEn: "Yandex Alisa",

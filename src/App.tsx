@@ -135,6 +135,33 @@ export default function App() {
             <li><button onClick={() => handleTabChange("works")} className={activeTab === "works" ? "active" : ""}>{t.works}</button></li>
             <li><button onClick={() => handleTabChange("about")} className={activeTab === "about" ? "active" : ""}>{t.about}</button></li>
           </ul>
+          <div className="mobile-contacts">
+            <h3>{t.contacts}</h3>
+
+            <div
+              className="contact-item"
+              onClick={() => copyEmail("me@ee3e.ru")}
+            >
+              <p>✦ EMAIL</p>
+              <small>me@ee3e.ru</small>
+              <span className={`copy-status ${emailCopied ? "visible" : ""}`}>
+                {t.copied}
+              </span>
+            </div>
+
+            <a
+              href="https://t.me/lizai_art"
+              target="_blank"
+              rel="noreferrer"
+              className="block"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div className="contact-item">
+                <p>✦ TELEGRAM</p>
+                <small>@lizai_art</small>
+              </div>
+            </a>
+          </div>
         </nav>
       </header>
 
@@ -144,10 +171,37 @@ export default function App() {
           {latestProject && (
             <div className="showreel-box" onClick={handleOpenLatestWork}>
               <h4>✦ {t.latest}</h4>
-              <div className="showreel-video group relative">
-                <img src={latestProject.img} alt="" className="w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0" />
-                <video className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100" src={latestProject.hoverVideo} loop muted playsInline />
-              </div>
+              <div
+                className="showreel-video"
+                onMouseEnter={(e) => {
+                  const video = e.currentTarget.querySelector("video");
+                  if (video) {
+                    video.play().catch(() => {});
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  const video = e.currentTarget.querySelector("video");
+                  if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                  }
+                }}
+              >
+                <img
+                  src={latestProject.img}
+                  alt=""
+                  className="showreel-thumbnail"
+                />
+                <video
+                  className="showreel-preview-video"
+                  src={latestProject.hoverVideo}
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                />
+                </div>
+
               <div className="showreel-meta">
                 <div className="showreel-title">{lang === "RU" ? latestProject.titleRu : latestProject.titleEn}</div>
                 <div className="showreel-date">{formatDate(latestProject.date, lang)}</div>
@@ -274,13 +328,14 @@ interface VideoCardProps {
   refEl: (node: any) => void;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ 
-  project, 
+
+const VideoCard: React.FC<VideoCardProps> = ({
+  project,
   lang,
-  displayNumber, 
-  isExpanded, 
-  isAwardStyle = false, 
-  onExpand, 
+  displayNumber,
+  isExpanded,
+  isAwardStyle = false,
+  onExpand,
   onClose,
   refEl
 }) => {
@@ -288,13 +343,15 @@ const VideoCard: React.FC<VideoCardProps> = ({
   const mainVideoRef = useRef<HTMLVideoElement | null>(null);
 
   const fullVideo =
-  lang === "EN" && project.fullVideoEn
-    ? project.fullVideoEn
-    : project.fullVideo;
+    lang === "EN" && project.fullVideoEn
+      ? project.fullVideoEn
+      : project.fullVideo;
 
   const handleMouseEnter = () => {
     if (isExpanded) return;
-    if (hoverVideoRef.current) hoverVideoRef.current.play().catch(() => {});
+    if (hoverVideoRef.current) {
+      hoverVideoRef.current.play().catch(() => {});
+    }
   };
 
   const handleMouseLeave = () => {
@@ -306,32 +363,64 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
   useEffect(() => {
     if (mainVideoRef.current) {
-      if (isExpanded) mainVideoRef.current.play().catch(() => {});
-      else {
+      if (isExpanded) {
+        mainVideoRef.current.play().catch(() => {});
+      } else {
         mainVideoRef.current.pause();
         mainVideoRef.current.currentTime = 0;
       }
     }
   }, [isExpanded]);
 
-  const customCardClass = isAwardStyle 
-    ? `video-card expanded-award ${isExpanded ? "expanded" : ""}` 
+  const customCardClass = isAwardStyle
+    ? `video-card expanded-award ${isExpanded ? "expanded" : ""}`
     : `video-card ${isExpanded ? "expanded" : ""}`;
 
   return (
-    <div ref={refEl} className={customCardClass} onClick={onExpand} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      {!isAwardStyle && <span className="video-number">{displayNumber}</span>}
+    <div
+      ref={refEl}
+      className={customCardClass}
+      onClick={onExpand}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {!isAwardStyle && (
+        <span className="video-number">{displayNumber}</span>
+      )}
 
       <div className="video-preview">
-        <img 
-          src={project.img} 
-          alt={lang === "RU" ? project.titleRu : project.titleEn} 
-          className="thumb-img" 
+        <img
+          src={project.img}
+          alt={lang === "RU" ? project.titleRu : project.titleEn}
+          className="thumb-img"
         />
-        <video ref={mainVideoRef} className="main-video" src={fullVideo} controls playsInline preload="auto" />
+        <video
+          ref={hoverVideoRef}
+          className="hover-video"
+          src={project.hoverVideo}
+          loop
+          muted
+          playsInline
+        />
+        {lang === "EN" && (project.fullVideoEn || ["yandex-auto-1", "yandex-auto-2", "The last drop"].includes(project.id)) && (
+          <span className="english-sub-label">
+            ENG SUB
+          </span>
+        )}
       </div>
+
       <div className="full-player">
-        <video ref={mainVideoRef} className="main-video" src={project.fullVideo} controls playsInline preload="auto" />
+        <video
+          key={fullVideo}
+          ref={mainVideoRef}
+          className="main-video"
+          src={fullVideo}
+          controls
+          controlsList="nodownload"
+          onContextMenu={(e) => e.preventDefault()}
+          playsInline
+          preload="auto"
+        />
         <div className="close-btn" onClick={onClose}>
           × {lang === "RU" ? "ЗАКРЫТЬ" : "CLOSE"}
         </div>
@@ -339,8 +428,14 @@ const VideoCard: React.FC<VideoCardProps> = ({
 
       {isAwardStyle ? (
         <div className="video-info award-info">
-          <h4 className="award-tag">{lang === "RU" ? project.titleRu : project.titleEn}</h4>
-          <p dangerouslySetInnerHTML={{ __html: lang === "RU" ? project.descRu : project.descEn }}></p>
+          <h4 className="award-tag">
+            {lang === "RU" ? project.titleRu : project.titleEn}
+          </h4>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: lang === "RU" ? project.descRu : project.descEn
+            }}
+          />
         </div>
       ) : (
         <div className="video-info">
@@ -350,4 +445,4 @@ const VideoCard: React.FC<VideoCardProps> = ({
       )}
     </div>
   );
-}
+};
