@@ -65,7 +65,7 @@ export const projectsData: Project[] = [
     date: "2026-03",
   },
   {
-    id: "О!стровок",
+    id: "ostrovok",
     titleRu: "О!стровок: серия 1",
     titleEn: "O!strovok: part 1",
     descRu: "LEAD AI-генералист | 2026",
