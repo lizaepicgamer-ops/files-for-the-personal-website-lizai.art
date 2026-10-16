@@ -51,6 +51,27 @@ export default function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const projectId = new URLSearchParams(window.location.search).get("project");
+    if (!projectId) return;
+
+    const project = projectsData.find(
+      (p) => p.id === projectId && !p.isAward
+    );
+
+    if (!project) return;
+
+    setActiveTab("works");
+    setExpandedProjectId(project.id);
+
+    setTimeout(() => {
+      projectRefs.current[project.id]?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 300);
+  }, []);
+
   const copyEmail = (email: string) => {
     navigator.clipboard.writeText(email);
     setEmailCopied(true);
